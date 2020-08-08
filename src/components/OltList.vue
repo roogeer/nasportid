@@ -23,17 +23,7 @@
 					<td align="left">{{value['nasportid'].join(';')}}</td>
 			</tr> -->
 			<template v-for="(value, key, index) in olts">
-<<<<<<< HEAD
 				<ListItem :index=index+1 :olt=value :key=key></ListItem>
-=======
-				<tr :key=key>
-					<td>{{index+1}}</td>
-					<td align="left">{{key}}</td>
-					<td align="left">{{value['name']}}</td>
-					<td align="left">{{value['bras']}}</td>
-				</tr>
-				
->>>>>>> b1d15a521b7696c6b7707c8d3dc6eb0437ea0e59
 			</template>
 		</tbody>
 	</table>
