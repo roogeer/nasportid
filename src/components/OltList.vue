@@ -23,7 +23,7 @@
 					<td align="left">{{value['nasportid'].join(';')}}</td>
 			</tr> -->
 			<template v-for="(value, key, index) in olts">
-				<ListItem :index=index+1 :olt=value :key=key></ListItem>
+				<ListItem :index=index+1 :olt=value :ip=key :key=key></ListItem>
 			</template>
 		</tbody>
 	</table>
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import ListItem from "./ListItem.vue"
 	
 export default {
@@ -39,10 +38,6 @@ export default {
   components: {
 	ListItem
 	},
-=======
-export default {
-  name: 'OltList',
->>>>>>> b1d15a521b7696c6b7707c8d3dc6eb0437ea0e59
   props: {
     msg: String
   },
