@@ -5,14 +5,14 @@
 			<td :rowspan="TotalRow(olt)">{{ip}}</td>
 			<td :rowspan="TotalRow(olt)">{{olt['name']}}</td>
 			<td :rowspan="olt['bras'][BrasKeys(olt)[0]]['interface'].length">{{olt['bras'][BrasKeys(olt)[0]]['name']}}</td>
-			<td>{{olt['bras'][BrasKeys(olt)[0]]['interface'][0]}}</td>
+			<td align="left">{{olt['bras'][BrasKeys(olt)[0]]['interface'][0]}}</td>
 			<td :rowspan="TotalRow(olt)">{{olt['nasportid'].join(';')}}</td>
 		</tr>
 		
 		<!-- 将第一个bras下的子接口全部输出 -->
 		<fragment v-if="olt['bras'][BrasKeys(olt)[0]]['interface'].length>1">
 			<tr v-for="count in olt['bras'][BrasKeys(olt)[0]]['interface'].length - 1" :key=count>
-				<td>{{olt['bras'][BrasKeys(olt)[0]]['interface'][count]}}</td>
+				<td align="left">{{olt['bras'][BrasKeys(olt)[0]]['interface'][count]}}</td>
 			</tr>
 		</fragment>
 		
@@ -25,14 +25,14 @@
 				</td>
 				
 				<!-- 第1个端口直接显示 -->
-				<td>
+				<td align="left">
 					{{olt['bras'][BrasKeys(olt)[count]]['interface'][0]}}
 				</td>
 			</tr>
 
 			<!-- 第2个端口开始迭代输出 -->
 			<tr v-for="subinterface in olt['bras'][BrasKeys(olt)[count]]['interface'].length - 1" :key=subinterface>
-				<td>
+				<td align="left">
 					{{olt['bras'][BrasKeys(olt)[count]]['interface'][count]}}
 				</td>
 			</tr>
