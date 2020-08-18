@@ -18,7 +18,8 @@
 		
 		<!-- 第{2..n}个bras的第1个端口 -->
 		<fragment>
-			<tr v-for="count in BrasKeys(olt).length - 1" :key=count>
+			<template v-for="count in BrasKeys(olt).length - 1">
+			<tr :key=count>
 				<td :rowspan="olt['bras'][BrasKeys(olt)[count]]['interface'].length">
 					{{olt['bras'][BrasKeys(olt)[count]]['name']}}
 				</td>
@@ -30,6 +31,13 @@
 			</tr>
 
 			<!-- 第2个端口开始迭代输出 -->
+			<tr v-for="subinterface in olt['bras'][BrasKeys(olt)[count]]['interface'].length - 1" :key=subinterface>
+				<td>
+					{{olt['bras'][BrasKeys(olt)[count]]['interface'][count]}}
+				</td>
+			</tr>
+			
+			</template>
 			
 		</fragment>
 	</fragment>
