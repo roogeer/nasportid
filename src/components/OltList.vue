@@ -16,33 +16,20 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr v-for="(value, key, index) in olts" :key=key>
-				<td :rowspan="value | TotalRow">{{index+1}}</td>
-				<td>{{value | TotalRow}}</td>
-				<td>{{value['name']}}</td>
-				<!-- <td>{{BrasKeys(value)[0]}}{{value['bras'][BrasKeys(value)[0]]['name']}}</td> -->
-				<!-- <td :rowspan="value['bras'][BrasKeys(value)[0]]['interface'].length">{{value['bras'][BrasKeys(value)[0]]['name']}}</td> -->
-				<td :rowspan="value['bras'][BrasKeys(value)[0]]">{{value['bras'][BrasKeys(value)[0]]['name']}}</td>
-				<td>{{value['bras'][BrasKeys(value)[0]]['interface'][0]}}</td>
-				<td :rowspan="value | TotalRow">{{value['nasportid'].join(';')}}</td>
-				
-				<!-- 第1台bras接口如果不址1个，继续继续输出 -->
-				<div v-if="1">子接口数量</div>
-			</tr>
-
-
-<!-- 			<template v-for="(value, key, index) in olts">
+			<template v-for="(value, key, index) in olts">
 				<ListItem :index=index+1 :olt=value :ip=key :key=key></ListItem>
-			</template> -->
+			</template>
 		</tbody>
 	</table>
   </div>
 </template>
 
 <script>
+	import ListItem  from './ListItem.vue'
 	
 export default {
   name: 'OltList',
+  components:{ListItem},
   methods:{
 	BrasKeys:function(olt){
 		// 这里获取olt的上联bras ip
@@ -71,9 +58,10 @@ export default {
 		olts:
 		{
 		"10.207.53.50": {
-		"name": "A奥体",
+		"name": "A奥体6800",
 		"nasportid": [
 		"WH-JZ-BR7750-1:0_0/101",
+		"WH-JZ-BR7750-1:0_0/102",
 		"WH-Red-JZ-A:1/1",
 		"WH-Red-JZ-A:11/1"
 		],
@@ -81,7 +69,8 @@ export default {
 		"10.207.7.146": {
 		"name": "JZ-7750-1",
 		"interface": [
-		"lag-101"
+		"lag-101",
+		"lag-102"
 		]
 		},
 		"10.207.7.111": {
@@ -96,24 +85,6 @@ export default {
 		"pppoebras": [
 		"10.207.7.146",
 		"10.207.7.238"
-		]
-		},
-		"10.207.53.58": {
-		"name": "A安顺花园",
-		"nasportid": [
-		"WH-LJS-ME60-2:4_2/3"
-		],
-		"bras": {
-		"10.207.7.114": {
-		"name": "LJS-ME60-2",
-		"interface": [
-		"Eth-Trunk3.105"
-		]
-		}
-		},
-		"type": "raisecom",
-		"pppoebras": [
-		"10.207.7.114"
 		]
 		}
 		}
