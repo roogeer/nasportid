@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <OltList msg="Raisecom OLT Bras上联端口表"/>
+	<OltList :olts="raisecomOlt" msg="Raisecom OLT Bras上联端口表"></OltList>
   </div>
 </template>
 
@@ -13,9 +13,19 @@ export default {
   components: {
     OltList
   },
+  data:function(){
+	return {
+		raisecomOlt: {}
+	}
+  },
   created:function(){
 	console.log('Raisecom created')
 	// 在这里请求url数据
+	let olts = JSON.parse(sessionStorage.getItem('raisecom'))
+	for(let i = 0; i<olts.length; i++){
+		let ip = Object.keys(olts[i])[0]
+		this.raisecomOlt[ip] = olts[i][ip]
+	}
   }
 }
 </script>

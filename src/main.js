@@ -7,12 +7,14 @@ Vue.config.productionTip = false
 new Vue({
   router,
   beforeCreate: function() {
+	console.log('beforeCreate()')
 	// 从服务器上获取数据
-	let url = 'http://192.168.108.102:8983/oltnasportid.json'
+	// let url = 'http://192.168.108.102:8983/oltnasportid.json'
+	let url = 'http://localhost:8080/oltnasportid.json'
 	fetch(url)
 	.then(response => response.json())
 	.then(data => {
-		console.log(data)
+		// console.log(data)
 		let olts = []
 		for(let i in data){
 			let o = {}
@@ -35,11 +37,11 @@ new Vue({
 			return 'tailong'===olt[ip]['type']
 		})
 
-		console.log(raisecomolts)
+		// console.log(raisecomolts)
 		sessionStorage.setItem('raisecom', JSON.stringify(raisecomolts))
-		console.log(greenwayolts)
+		// console.log(greenwayolts)
 		sessionStorage.setItem('greenway', JSON.stringify(greenwayolts))
-		console.log(tailongolts)
+		// console.log(tailongolts)
 		sessionStorage.setItem('tailong', JSON.stringify(tailongolts))
 		
 		
@@ -47,6 +49,7 @@ new Vue({
 		// let ip = Object.keys(olts[0])[0]
 		// console.log(ip)
 		// console.log(olts[0][ip]['type'])
+		console.log('sessionStorage Completed')
 	})
 	.catch(e => console.log("Oops, error", e))},
   render: h => h(App)

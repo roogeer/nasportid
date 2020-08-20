@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <OltList msg="Greenway OLT Bras上联端口表"/>
+	<OltList :olts="greenwayOlt" msg="Greenway OLT Bras上联端口表"></OltList>
   </div>
 </template>
 
@@ -13,9 +13,19 @@ export default {
   components: {
     OltList
   },
+  data:function(){
+	return {
+		greenwayOlt: {}
+	}
+  },
   created:function(){
 	console.log('Greenway created')
 	// 在这里请求url数据
+	let olts = JSON.parse(sessionStorage.getItem('greenway'))
+	for(let i = 0; i<olts.length; i++){
+		let ip = Object.keys(olts[i])[0]
+		this.greenwayOlt[ip] = olts[i][ip]
+	}
   }
 }
 </script>

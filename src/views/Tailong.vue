@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <OltList msg="TaiLong OLT Bras上联端口表"/>
+	<OltList :olts="tailongOlt" msg="TaiLong OLT Bras上联端口表"></OltList>
   </div>
 </template>
 
@@ -13,9 +13,19 @@ export default {
   components: {
     OltList
   },
+  data:function(){
+	return {
+		tailongOlt: {}
+	}
+  },
   created:function(){
 	console.log('Tailong created')
 	// 在这里请求url数据
+	let olts = JSON.parse(sessionStorage.getItem('tailong'))
+	for(let i = 0; i<olts.length; i++){
+		let ip = Object.keys(olts[i])[0]
+		this.tailongOlt[ip] = olts[i][ip]
+	}
   }
 }
 </script>
