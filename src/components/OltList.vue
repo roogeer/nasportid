@@ -30,26 +30,6 @@
 export default {
   name: 'OltList',
   components:{ListItem},
-  methods:{
-	BrasKeys:function(olt){
-		// 这里获取olt的上联bras ip
-		// console.log(Object.keys(olt['bras']));
-		return Object.keys(olt['bras'])
-	}
-  },
-  filters:{
-	TotalRow:function(olt){
-		let keys = Object.keys(olt['bras'])
-		let _totalRow = 0
-		for(let key of keys){
-			_totalRow = _totalRow + olt['bras'][key]['interface'].length
-		}
-		return _totalRow
-	},
-	subRow:function(brasinterface){
-		return brasinterface.length
-	}
-  },
   props: {
     msg: String
   },
