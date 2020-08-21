@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-	<OltList :olts="greenwayOlt" msg="Greenway OLT Bras上联端口表"></OltList>
+	<OltList :olts="greenwayOlt" msg="Greenway OLT Bras端口表"></OltList>
   </div>
 </template>
 
@@ -19,7 +19,6 @@ export default {
 	}
   },
   created:function(){
-	console.log('Greenway created')
 	// 在这里请求url数据
 	let olts = JSON.parse(sessionStorage.getItem('greenway'))
 	for(let i = 0; i<olts.length; i++){

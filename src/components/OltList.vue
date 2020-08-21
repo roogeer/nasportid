@@ -4,15 +4,15 @@
 	<table border="1px" align="center">
 		<thead>
 			<tr>
-				<th rowspan="2">序号</th>
+				<th rowspan="2">sn</th>
 				<th rowspan="2">ip</th>
-				<th rowspan="2">名称</th>
+				<th rowspan="2">OLT</th>
 				<th colspan="2">Bras</th>
 				<th rowspan="2">nasportid</th>
 			</tr>
 			<tr>
-				<td>名称</td>
-				<td>接口</td>
+				<td>name</td>
+				<td>interface</td>
 			</tr>
 		</thead>
 		<tbody>

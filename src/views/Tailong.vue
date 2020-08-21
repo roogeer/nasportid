@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-	<OltList :olts="tailongOlt" msg="TaiLong OLT Bras上联端口表"></OltList>
+	<OltList :olts="tailongOlt" msg="TaiLong OLT Bras端口表"></OltList>
   </div>
 </template>
 
@@ -19,7 +19,6 @@ export default {
 	}
   },
   created:function(){
-	console.log('Tailong created')
 	// 在这里请求url数据
 	let olts = JSON.parse(sessionStorage.getItem('tailong'))
 	for(let i = 0; i<olts.length; i++){

@@ -6,8 +6,8 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  beforeCreate: function() {
-	console.log('beforeCreate()')
+  // beforeCreate: function() {
+  created: function() {
 	// 从服务器上获取数据
 	// let url = 'http://192.168.108.102:8983/oltnasportid.json'
 	let url = 'http://localhost:8080/oltnasportid.json'
@@ -43,13 +43,6 @@ new Vue({
 		sessionStorage.setItem('greenway', JSON.stringify(greenwayolts))
 		// console.log(tailongolts)
 		sessionStorage.setItem('tailong', JSON.stringify(tailongolts))
-		
-		
-		// console.log(typeof(olts))
-		// let ip = Object.keys(olts[0])[0]
-		// console.log(ip)
-		// console.log(olts[0][ip]['type'])
-		console.log('sessionStorage Completed')
 	})
 	.catch(e => console.log("Oops, error", e))},
   render: h => h(App)
