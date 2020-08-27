@@ -1,18 +1,18 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-	<table border="1px" align="center">
+    <h3>{{ msg }}</h3>
+	<table class="table_head" border="1px" align="center">
 		<thead>
 			<tr>
-				<th rowspan="2">sn</th>
-				<th rowspan="2">ip</th>
-				<th rowspan="2">OLT</th>
+				<th width="30px" rowspan="2">sn</th>
+				<th width="108px" rowspan="2">ip</th>
+				<th width="218px" rowspan="2">olt</th>
 				<th colspan="2">Bras</th>
 				<th rowspan="2">nasportid</th>
 			</tr>
 			<tr>
-				<td>name</td>
-				<td>interface</td>
+				<th width="120px">name</th>
+				<th width="128px">interface</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,6 +39,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.table_head {
+	border-collapse: collapse;
+	margin: 10px auto;
+	height: 100%;
+	width:  1500px;
+	padding: 0;
+	/*vertical-align: bottom;*/
+	}
+
+th {
+	text-align:center;
+	background-color:#337ab7;
+	color:#FFFFFF;
+}
+	
 h3 {
   margin: 40px 0 0;
 }

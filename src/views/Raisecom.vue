@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-	<OltList :olts="raisecomOlt" msg="Raisecom OLT Bras端口表"></OltList>
+	<OltList :olts="raisecomOlt" msg="Raisecom OLT Bras Ports"></OltList>
   </div>
 </template>
 
@@ -42,6 +42,7 @@ export default {
 		for(let i = 0; i<_olts.length; i++){
 			let ip = Object.keys(_olts[i])[0]
 			obj[ip] = _olts[i][ip]
+			obj[ip]['trbgcolor'] = (i % 2===0)?'#ffffff':'#e8f9e8'
 		}
 		this.raisecomOlt = obj
 		sessionStorage.setItem('raisecom', JSON.stringify(raisecomolts))
@@ -53,6 +54,7 @@ export default {
 		for(let i = 0; i<olts.length; i++){
 			let ip = Object.keys(olts[i])[0]
 			this.raisecomOlt[ip] = olts[i][ip]
+			this.raisecomOlt[ip]['trbgcolor'] = (i % 2===0)?'#ffffff':'#e8f9e8'
 		}
 	}
   }
